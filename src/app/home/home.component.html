@@ -1,0 +1,23 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Добавить элемент</p>
+  </div>
+  <div class="col">
+    <p>Список элементов ({{itemCount}})</p>
+  </div>
+</div>
+<div class="container color-light" [@goals]="goals.length">
+  <div class="col">
+    <p class="sm">Используйте форму ниже, чтобы добавить элемент</p>
+
+    <form>
+      <input type="text" class="txt" name="item" placeholder="элемент.." [(ngModel)] = "goalText">
+      <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+    </form>
+  </div>
+  <div class="col">
+    <p class="item-container" *ngFor="let gl of goals; let i=index" (click)="removeItem(i)">
+      {{ gl }}
+    </p>
+  </div>
+</div>
